@@ -1,0 +1,35 @@
+# Ignore Python compiled bytecode files
+*.pyc
+*.pyo
+__pycache__/
+
+# Ignore OS-specific files
+.DS_Store
+
+# Ignore IDE-specific files
+.idea/
+.vscode/
+*.pyc
+
+# Ignore environment settings file
+.env
+
+# Exclude generated files or build artifacts
+dist/
+build/
+*.egg-info/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+sdist/
+
+# Ignore log files
+*.log
+logs/
+*.tmp
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+
