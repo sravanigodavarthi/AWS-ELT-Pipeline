@@ -28,7 +28,7 @@ with DAG(
         schedule='@monthly',
         default_args=default_args,
         catchup=False,
-        template_searchpath=['/opt/airflow/data_warehouse/sql_queries']
+        template_searchpath=['/opt/airflow/data_warehouse']
         ) as dag:
         
             start_operator = EmptyOperator(task_id='begin_execution')

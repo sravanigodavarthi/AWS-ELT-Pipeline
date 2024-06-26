@@ -82,7 +82,7 @@ x-airflow-common:
     - ${AIRFLOW_PROJ_DIR:-.}/logs:/opt/airflow/logs
     - ${AIRFLOW_PROJ_DIR:-.}/config:/opt/airflow/config
     - ${AIRFLOW_PROJ_DIR:-.}/plugins:/opt/airflow/plugins
-    - ${AIRFLOW_PROJ_DIR:-.}/data_warehouse/sql_queries:/opt/airflow/data_warehouse/sql_queries
+    - ${AIRFLOW_PROJ_DIR:-.}/data_warehouse:/opt/airflow/data_warehouse
     - ${AIRFLOW_PROJ_DIR:-.}/data:/opt/airflow/data
     - ${AIRFLOW_PROJ_DIR:-.}/data_ingestion:/opt/airflow/data_ingestion
     - ${AIRFLOW_PROJ_DIR:-.}/data_quality:/opt/airflow/data_quality
