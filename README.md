@@ -21,15 +21,15 @@ The dataset is sourced from https://www.nyc.gov/site/tlc/about/tlc-trip-record-d
 <img src="assets/architecture.png" align="center" width="1000" />
 </div>
 
-1. **Data Ingestion:** Raw data files, such as `NYC_TLC_trip_data.parquet` and `taxi_zone_lookup.csv`, are loaded into **Amazon S3**. This serves as the primary storage location for incoming raw data files.
+1. **Data Ingestion:** Raw data files, such as `NYC_TLC_trip_data.parquet` and `taxi_zone_lookup.csv`, are loaded into Amazon S3. This serves as the primary storage location for incoming raw data files.
 
-2. **Data Loading:** From S3, the raw data is transferred into **Amazon Redshift Serverless**, using the `COPY` command, which efficiently moves large datasets from S3 to Redshift.
+2. **Data Loading:** From S3, the raw data is transferred into Amazon Redshift Serverless, using the `COPY` command, which efficiently moves large datasets from S3 to Redshift.
    
 3. **Data Transformation and Modeling:** Amazon Redshift Serverless acts as a data warehouse, where the data undergoes transformation and modeling processes, making it ready for analysis.
   
-4. **Data Orchestration:** The steps are orchestrated using **Apache Airflow**, which is containerized using **Docker**.
+4. **Data Orchestration:** The steps are orchestrated using Apache Airflow, which is containerized using Docker.
    
-5. **Data Analysis:** Using **Query Editor v2.0**, data analysts and BI teams can run SQL queries on the data warehouse to generate insights, create reports, and visualize data trends.
+5. **Data Analysis:** Using Query Editor v2.0, data analysts and BI teams can run SQL queries on the data warehouse to generate insights, create reports, and visualize data trends.
 
 ## Data Model for Taxi Trip Analysis
 Data modeling enables effective analysis by designing a well-structured schema that shapes trip data within the data warehouse.
