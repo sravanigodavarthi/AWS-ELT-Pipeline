@@ -1,6 +1,3 @@
-![Star Badge](https://img.shields.io/static/v1?label=%F0%9F%8C%9F&message=If%20Useful&style=style=flat&color=BC4E99)
-![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)
-
 ## Project Description:
 The New York City Taxi and Limousine Commission (TLC) wants to analyze the taxi trip data every month to understand what customers do and what they need. This will help them make better decisions to improve their services and make rides better for passengers.
 
