@@ -10,9 +10,9 @@ The project’s goal is to create an ELT pipeline that can manage a large databa
 
 ### Data Details: 
 The dataset is sourced from https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page
-* **Trip Record Data:** The February 2024 dataset, “NYC_TLC_trip_data_2024_02.parquet,” contains around 3 million yellow taxi trip records. Each record has 19 details about the trip, like pick-up and drop-off timestamps, pick-up and drop-off locations, trip distances, breakdown of fares, types of rates, methods of payment, and driver-reported passenger counts. The detailed explanation of this data is provided in the data dictionary. https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_yellow.pdf
+* **Trip Record Data:** The February 2024 dataset, `NYC_TLC_trip_data_2024_02.parquet`, contains around 3 million yellow taxi trip records. Each record has 19 details about the trip, like pick-up and drop-off timestamps, pick-up and drop-off locations, trip distances, breakdown of fares, types of rates, methods of payment, and driver-reported passenger counts. The detailed explanation of this data is provided in the data dictionary. https://www.nyc.gov/assets/tlc/downloads/pdf/data_dictionary_trip_records_yellow.pdf
 
-* **Geographical Details**: The “taxi_zone_lookup.csv” provides key location details such as service zones, taxi zones, and boroughs. This information is important in understanding patterns of travel and areas of high demand, thereby contributing to a more comprehensive analysis.
+* **Geographical Details**: The `taxi_zone_lookup.csv` provides key location details such as service zones, taxi zones, and boroughs. This information is important in understanding patterns of travel and areas of high demand, thereby contributing to a more comprehensive analysis.
 
 # NYC Taxi - Data Warehouse on AWS <img src="assets/NYC_taxi.png" align="right" width="100" />
 
@@ -21,15 +21,15 @@ The dataset is sourced from https://www.nyc.gov/site/tlc/about/tlc-trip-record-d
 <img src="assets/architecture.png" align="center" width="1000" />
 </div>
 
-1. **Data Ingestion:** Raw data files, such as NYC_TLC_trip_data.parquet and taxi_zone_lookup.csv, are loaded into Amazon S3. This serves as the primary storage location for incoming raw data files.
+1. **Data Ingestion:** Raw data files, such as `NYC_TLC_trip_data.parquet` and `taxi_zone_lookup.csv`, are loaded into **Amazon S3**. This serves as the primary storage location for incoming raw data files.
 
-2. **Data Loading:** From S3, the raw data is transferred into Amazon Redshift Serverless, using the COPY command, which efficiently moves large datasets from S3 to Redshift.
+2. **Data Loading:** From S3, the raw data is transferred into **Amazon Redshift Serverless**, using the `COPY` command, which efficiently moves large datasets from S3 to Redshift.
    
 3. **Data Transformation and Modeling:** Amazon Redshift Serverless acts as a data warehouse, where the data undergoes transformation and modeling processes, making it ready for analysis.
   
-4. **Data Orchestration:** The steps are orchestrated using Apache Airflow, which is containerized using Docker.
+4. **Data Orchestration:** The steps are orchestrated using **Apache Airflow**, which is containerized using **Docker**.
    
-5. **Data Analysis:** Using Query Editor v2.0, data analysts and BI teams can run SQL queries on the data warehouse to generate insights, create reports, and visualize data trends.
+5. **Data Analysis:** Using **Query Editor v2.0**, data analysts and BI teams can run SQL queries on the data warehouse to generate insights, create reports, and visualize data trends.
 
 ## Data Model for Taxi Trip Analysis
 Data modeling enables effective analysis by designing a well-structured schema that shapes trip data within the data warehouse.
