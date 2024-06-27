@@ -77,21 +77,21 @@ To process the raw trip data and transform it into facts and dimensions, an ELT 
 
 **Extract:**
 
-  * **[upload_to_s3.py](upload_to_s3.py)**: Extracted Source data files are uploaded to S3 using AWS’s boto3 library.
+  * **[upload_to_s3.py](/data_ingestion/upload_to_s3.py)**: Extracted Source data files are uploaded to S3 using AWS’s boto3 library.
   
 **Load:**
- * **[create_tables.sql](create_tables.sql)**: Raw, staging, dimension, and fact tables are created with SQL queries compatible with Amazon Redshift.
+ * **[create_tables.sql](/data_warehouse/create_tables.sql)**: Raw, staging, dimension, and fact tables are created with SQL queries compatible with Amazon Redshift.
  * Data from S3 is loaded into the raw table in Redshift using the `COPY` command. 
   
 **Transform:**
- * **[staging_nyc_taxi_trip.sql](staging_nyc_taxi_trip.sql)**: Data in the raw table is cleaned by removing unwanted entries, nulls, and duplicates using SQL queries and then copied to a staging table. The staging table holds the intermediate cleaned data that is ready for further transformation.
- * **[dims](dims)** & **[facts](facts)** : The dimension and fact tables are populated using SQL queries that reference the staging table.
- * **[create_views.sql](create_views.sql)**: Views are created in the reporting layer to facilitate easy analysis.
+ * **[staging_nyc_taxi_trip.sql](/data_warehouse/staging_layer/staging_nyc_taxi_trip.sql)**: Data in the raw table is cleaned by removing unwanted entries, nulls, and duplicates using SQL queries and then copied to a staging table. The staging table holds the intermediate cleaned data that is ready for further transformation.
+ * **[dims](/data_warehouse/presentation_layer/dims)** & **[facts](/data_warehouse/presentation_layer/facts)** : The dimension and fact tables are populated using SQL queries that reference the staging table.
+ * **[create_views.sql](/data_warehouse/reporting_layer/create_views.sql)**: Views are created in the reporting layer to facilitate easy analysis.
 
 **Data Quality Check:**
- * **[data_quality_checks.py](data_quality_checks.py)**: In order to ensure the tables were loaded, a data quality checking is performed to count the total records each table has. If a table has no rows then the workflow will fail and throw an error message.
+ * **[data_quality_checks.py](/data_quality/data_quality_checks.py)**: In order to ensure the tables were loaded, a data quality checking is performed to count the total records each table has. If a table has no rows then the workflow will fail and throw an error message.
 
-**[custom_redshift_operator.py](custom_redshift_operator.py)**: A custom Redshift operator is implemented to execute multiple SQL queries in a single task, and the connection to the Redshift database is established using RedshiftSQLHook.
+**[custom_redshift_operator.py](/operators/custom_redshift_operator.py)**: A custom Redshift operator is implemented to execute multiple SQL queries in a single task, and the connection to the Redshift database is established using RedshiftSQLHook.
 
 ## Optimization techniques:
  * Using the `Parquet` format, the ‘NYC_TLC_trip_data_2024_02.parquet’ file saves space on S3 and speeds up data transfer to Redshift due to its built-in compression techniques. It efficiently supports various data types and stores metadata, making data management and usage easier.
